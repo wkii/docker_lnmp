@@ -1,0 +1,18 @@
+version: '2'
+services:
+    web:
+        build: ./nginx
+        ports:
+            - "80:80"
+        links:
+            - "phpfpm"
+        volumes:
+            - "~/Sites:/data"
+
+
+    phpfpm:
+        build: ./php
+        ports:
+            - "9000:9000"
+        volumes:
+            - "~/Sites:/data"
